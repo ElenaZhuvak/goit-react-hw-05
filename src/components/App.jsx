@@ -8,6 +8,7 @@ import { Team } from './NestedRoutes/Team'
 import Company from './NestedRoutes/Company'
 import Users from '../pages/Users/Users'
 import UserDetails from '../pages/UserDetails/UserDetails'
+import Posts from './NestedRoutes/Posts'
 
 const App = () => {
   return (
@@ -15,8 +16,14 @@ const App = () => {
         <Header/>
         <Routes>
             <Route path='/' element={<Home />} />
+
             <Route path='/users' element={<Users />} />
-            <Route path='/users/:userId' element={<UserDetails />} />
+
+            <Route path='/users/:userId' element={<UserDetails />}>
+              <Route path='info' element={<h2>test info</h2>}/>
+              <Route path='posts' element={<Posts/>}/>
+
+            </Route>
 
             <Route path='/about' element={<About />} >
                 <Route path='aim' element={<Aim />} />
