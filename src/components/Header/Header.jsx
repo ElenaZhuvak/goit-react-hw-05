@@ -9,12 +9,9 @@ const buildLinkClass = ({ isActive }) => {
 function Header() {
   return (
     <header className={css.header}>
-        <h3>Routing</h3>
         <nav className={css.nav}>
-            <NavLink className={buildLinkClass} to='./'>Home</NavLink>
-            <NavLink className={buildLinkClass} to='/about'>About</NavLink>
-            <NavLink className={buildLinkClass} to='/users'>Users</NavLink>
-
+            <NavLink className={buildLinkClass} to='/'>Home</NavLink>
+            <NavLink className={buildLinkClass} to='/movies'>Movies</NavLink>
         </nav>
     </header>
   )
