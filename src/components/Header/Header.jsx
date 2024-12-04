@@ -1,10 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import css from './Header.module.css'
-import clsx from 'clsx';
+import { buildLinkClass } from '../../helpers/buildLinkClass'
 
-const buildLinkClass = ({ isActive }) => {
-    return clsx(css.link, isActive && css.active);
-  };
+
 
 function Header() {
   return (
