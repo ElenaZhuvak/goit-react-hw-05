@@ -26,22 +26,31 @@ const MovieDetailsPage = () => {
     getData()
   }, [movieDetails])
   
-  
   if (!movieDetails) {
     return null
   }
   return (
     <div>
-      {movieDetailsImage && 
-      (<img src={movieDetailsImage} 
-            alt={movieDetails.title} />)}
-      {`${movieDetails.title} 
-      (${new Date(movieDetails.release_date).getFullYear()})`}
-      
+      {movieDetailsImage && (<img src={movieDetailsImage} alt={movieDetails.title} />)}
+
+      <h1>
+        {`${movieDetails.title} ${new Date(movieDetails.release_date).getFullYear()}`}
+      </h1>
+
+      <p>User Score: {`${movieDetails.vote_average.toFixed(1)}`}</p>
+
+      <h2>Overview</h2>
+      <p>{`${movieDetails.overview}`}</p>
+
+      <p>Genres</p>
+      <p>{movieDetails.genres.map(genre => genre.name).join(', ')}</p>
+<hr />
+      <p>Additional information</p>
       <nav className={css.nav}>
             <NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink>
             <NavLink className={buildLinkClass} to='cast'>Cast</NavLink>
-        </nav>
+      </nav>
+<hr />
     </div>
   )
 }
