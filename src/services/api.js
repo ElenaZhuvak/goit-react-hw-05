@@ -26,3 +26,8 @@ export const fetchMoviesByQuery = async (query) => {
     })
     return data.results
 }
+
+export const fetchMovieImage = async (poster_path) => {
+    const imageUrl = await axios.get(`https://image.tmdb.org/t/p/w500${poster_path}`)
+    return imageUrl
+}

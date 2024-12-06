@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchMoviesById } from "../../services/api"
+import { fetchMovieImage, fetchMoviesById } from "../../services/api"
 import { NavLink, useParams } from "react-router-dom"
 import css from './MovieDetailsPage.module.css'
 import { buildLinkClass } from "../../helpers/buildLinkClass"
@@ -7,7 +7,9 @@ import { buildLinkClass } from "../../helpers/buildLinkClass"
 const MovieDetailsPage = () => {
 
   const [movieDetails, setMovieDetails] = useState(null)
+  const [movieDetailsImage, setMovieDetailsImage] = useState(null)
   const {movieId} = useParams()
+
   useEffect(() => {
     const getData = async () => {
       const movieDetails = await fetchMoviesById(movieId)
@@ -16,13 +18,26 @@ const MovieDetailsPage = () => {
     getData()
   }, [movieId])
   
+  useEffect(() => {
+    const getData = async () => {
+      const moviesImageUrl = await fetchMovieImage(movieDetails.poster_path)
+      setMovieDetailsImage(moviesImageUrl)
+    }
+    getData()
+  }, [movieDetails])
+  
+  
   if (!movieDetails) {
     return null
   }
-
   return (
     <div>
-      {`${movieDetails.title} (${new Date(movieDetails.release_date).getFullYear()})`}
+      {movieDetailsImage && 
+      (<img src={movieDetailsImage} 
+            alt={movieDetails.title} />)}
+      {`${movieDetails.title} 
+      (${new Date(movieDetails.release_date).getFullYear()})`}
+      
       <nav className={css.nav}>
             <NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink>
             <NavLink className={buildLinkClass} to='cast'>Cast</NavLink>
@@ -30,5 +45,7 @@ const MovieDetailsPage = () => {
     </div>
   )
 }
+
+
 
 export default MovieDetailsPage
