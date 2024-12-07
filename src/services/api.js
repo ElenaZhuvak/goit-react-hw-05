@@ -28,8 +28,10 @@ export const fetchMoviesByQuery = async (query) => {
 }
 
 export const fetchMovieImage = async (poster_path) => {
-    if(!poster_path) return null;
-    return `https://image.tmdb.org/t/p/w300${poster_path}`;
+    const defaultImg = "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
+    
+    if(!poster_path) return defaultImg;
+    return `https://image.tmdb.org/t/p/w400${poster_path}`;
 }
 
 export const fetchMovieReviews = async (id) => {

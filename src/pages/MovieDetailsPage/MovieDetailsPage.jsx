@@ -32,7 +32,9 @@ const MovieDetailsPage = () => {
   return (
     <div className={css.container}>
       <div className={css.movieInfo}>
-          {movieDetailsImage && (<img src={movieDetailsImage} alt={movieDetails.title} />)}
+          {movieDetailsImage ? 
+          (<img src={movieDetailsImage} alt={movieDetails.title} />) :
+          (<img src="https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster" alt={movieDetails.title}/>)}
     
           <div className={css.movieContainer}>
             <h1 className={css.movieTitle}>

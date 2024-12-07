@@ -1,10 +1,9 @@
 .container {
-  margin-left: 5px;
+  padding: 0 10px;
 }
 .navAddInfo {
   display: flex;
   gap: 12px;
-  margin-left: 10px;
 }
 .link {
   text-decoration: none;
