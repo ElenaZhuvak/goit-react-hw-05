@@ -1,13 +1,45 @@
-.nav {
-    display: flex;
-    gap: 12px;
+.container {
+  margin-left: 5px;
+}
+.navAddInfo {
+  display: flex;
+  gap: 12px;
+  margin-left: 10px;
 }
 .link {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-  }
-  
-  .active {
-    color: orangered;
-  }
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.active {
+  color: orangered;
+}
+.movieInfo {
+  display: flex;
+}
+.movieContainer {
+  margin-left: 15px;
+}
+.movieTitle {
+  display: block;
+  margin-bottom: 20px;
+}
+p, h1, h2 {
+  margin: 0;
+}
+.movieDetail {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.movieScore {
+  font-weight: normal;
+}
+.movieDescription {
+  margin: 10px 0;
+}
+.movieAddInfoTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}

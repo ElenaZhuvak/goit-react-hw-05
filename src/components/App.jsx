@@ -6,10 +6,11 @@ import NotFound from "../pages/NotFound/NotFound"
 import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage"
 import MovieReviews from "./MovieReviews/MovieReviews"
 import MovieCast from "./MovieCast/MovieCast"
+import css from './App.module.css'
 
 const App = () => {
   return (
-    <div>
+    <div className={css.container}>
       <Header />
 
       <Routes>

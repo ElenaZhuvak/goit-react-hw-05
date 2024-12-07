@@ -27,12 +27,12 @@ export const fetchMoviesByQuery = async (query) => {
     return data.results
 }
 
-// export const fetchMovieImage = async (poster_path) => {
-//     const imageUrl = await axios.get(`https://image.tmdb.org/t/p/w500/${poster_path}`)
-//     return imageUrl
-// }
-
 export const fetchMovieImage = async (poster_path) => {
     if(!poster_path) return null;
     return `https://image.tmdb.org/t/p/w300${poster_path}`;
+}
+
+export const fetchMovieReviews = async (id) => {
+    const {data} = await axios.get(`/movie/${id}/reviews`)
+    return data.results
 }
