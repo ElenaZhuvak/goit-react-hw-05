@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchTrendingMovies } from "../../services/api"
 import MovieList from "../../components/MovieList/MovieList"
+import css from './HomePage.module.css'
 
 
 const HomePage = () => {
@@ -16,7 +17,7 @@ useEffect(() => {
 
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <h2>Trending today</h2>
       <MovieList movies={movies}/>
     </div>
