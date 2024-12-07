@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { fetchMovieImage, fetchMoviesById } from "../../services/api"
 import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom"
 import css from './MovieDetailsPage.module.css'
@@ -10,6 +10,7 @@ const MovieDetailsPage = () => {
   const [movieDetailsImage, setMovieDetailsImage] = useState(null)
   const {movieId} = useParams()
   const location = useLocation()
+  const goBackLink = useRef(location.state ?? '/movies')
 
   useEffect(() => {
     const getData = async () => {
@@ -32,7 +33,7 @@ const MovieDetailsPage = () => {
   }
   return (
     <div className={css.container}>
-      <Link to={location.state}>← Go back</Link>
+      <Link to={goBackLink.current}>← Go back</Link>
       <div className={css.movieInfo}>
           {movieDetailsImage ? 
           (<img src={movieDetailsImage} alt={movieDetails.title} />) :
