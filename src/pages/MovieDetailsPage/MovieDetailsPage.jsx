@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState } from "react"
-import { fetchMovieImage, fetchMoviesById } from "../../services/api"
+import { Suspense, useEffect, useRef, useState } from "react"
+import { fetchMoviesById } from "../../services/api"
 import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom"
 import css from './MovieDetailsPage.module.css'
 import { buildLinkClass } from "../../helpers/buildLinkClass"
 
+const defaultImg =
+    "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
+
 const MovieDetailsPage = () => {
 
   const [movieDetails, setMovieDetails] = useState(null)
-  const [movieDetailsImage, setMovieDetailsImage] = useState(null)
   const {movieId} = useParams()
   const location = useLocation()
   const goBackLink = useRef(location.state ?? '/movies')
@@ -20,24 +22,19 @@ const MovieDetailsPage = () => {
     getData()
   }, [movieId])
   
-  useEffect(() => {
-    const getData = async () => {
-      const moviesImageUrl = await fetchMovieImage(movieDetails.poster_path)
-      setMovieDetailsImage(moviesImageUrl)
-    }
-    getData()
-  }, [movieDetails])
-  
   if (!movieDetails) {
     return null
   }
   return (
     <div className={css.container}>
       <Link to={goBackLink.current}>← Go back</Link>
+
       <div className={css.movieInfo}>
-          {movieDetailsImage ? 
-          (<img src={movieDetailsImage} alt={movieDetails.title} />) :
-          (<img src="https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster" alt={movieDetails.title}/>)}
+          <img  src={movieDetails.poster_path
+        ? `https://image.tmdb.org/t/p/w400/${movieDetails.poster_path}`
+        : defaultImg
+    } alt={movieDetails.title} />
+
     
           <div className={css.movieContainer}>
             <h1 className={css.movieTitle}>
@@ -63,7 +60,9 @@ const MovieDetailsPage = () => {
               </nav>
       </div>
         <hr />
-      <Outlet/>
+        <Suspense fallback={<h2>Page is loading...</h2>}>
+          <Outlet/>
+        </Suspense>
 
     </div>
   )

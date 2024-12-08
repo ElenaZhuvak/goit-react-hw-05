@@ -2,8 +2,6 @@ import { NavLink } from 'react-router-dom'
 import css from './Header.module.css'
 import { buildLinkClass } from '../../helpers/buildLinkClass'
 
-
-
 function Header() {
   return (
     <header className={css.header}>

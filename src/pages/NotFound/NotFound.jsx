@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 const NotFound = () => {
   return (
     <div>
-      <Link to='/'>Home</Link>
+      <Link to='/'>List of trending movies</Link>
       
-        <h2>Ooops... Page is not found!</h2>
+      <h2>Ooops... Page is not found!</h2>
     </div>
   )
 }

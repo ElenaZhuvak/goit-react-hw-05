@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { fetchMoviesByQuery } from "../../services/api"
 import MovieList from "../../components/MovieList/MovieList"
+import css from './MoviesPage.module.css'
 
 const initialValues = {
   query: '',
@@ -35,12 +36,9 @@ const MoviesPage = () => {
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>    
-      <Form>
-      <label>
-        Search movie
-        <Field name='query'/>
-      </label>
-      <button type='submit'>Search</button>
+      <Form className={css.searchBarContainer}>
+        <Field className={css.searchBarInput} name='query' placeholder='Search movie'/>
+      <button className={css.searchBarBtn} type='submit'>Search</button>
         </Form>
       </Formik>
 
