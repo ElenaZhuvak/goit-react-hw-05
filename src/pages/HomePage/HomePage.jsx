@@ -18,8 +18,8 @@ useEffect(() => {
 
   return (
     <div className={css.wrapper}>
-      <h2>Trending today</h2>
-      <MovieList movies={movies}/>
+      <h2 className={css.title}>Trending today</h2>
+      <MovieList movies={movies} className={css.movieList}/>
     </div>
   )
 }
