@@ -3,12 +3,13 @@ import Header from './Header/Header';
 import css from './App.module.css';
 import { lazy, Suspense } from 'react';
 
+
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage/MovieDetailsPage'));
 const MovieReviews = lazy(() => import('./MovieReviews/MovieReviews'));
 const MovieCast = lazy(() => import('./MovieCast/MovieCast'));
-const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
+const Navigation = lazy(() => import('./Navigation/Navigation'));
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
             <Route path="cast" element={<MovieCast />} />
           </Route>
 
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Navigation />} />
         </Routes>
       </Suspense>
     </div>

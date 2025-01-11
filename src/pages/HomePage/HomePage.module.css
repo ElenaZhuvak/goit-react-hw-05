@@ -1,9 +1,16 @@
 .wrapper {
-    padding: 0 10px;
+    padding: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./img/theater-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color:beige;
 }
 .title {
-    
+    font-size: 32px;
+    text-align: center;
 }
 .movieList {
-    
+    margin: 0 auto;
 }
