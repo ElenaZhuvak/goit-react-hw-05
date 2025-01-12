@@ -27,7 +27,7 @@ const MovieDetailsPage = () => {
   }
   return (
     <div className={css.container}>
-      <Link to={goBackLink.current}>← Go back</Link>
+      <Link to={goBackLink.current} className={css.goBack}>← Go back</Link>
 
       <div className={css.movieInfo}>
           <img  src={movieDetails.poster_path

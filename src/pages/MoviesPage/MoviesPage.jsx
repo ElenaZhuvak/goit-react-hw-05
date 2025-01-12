@@ -34,7 +34,7 @@ const MoviesPage = () => {
   }
   
   return (
-    <div>
+    <div className={css.wrapperMoviePage}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>    
       <Form className={css.searchBarContainer}>
         <Field className={css.searchBarInput} name='query' placeholder='Search movie'/>

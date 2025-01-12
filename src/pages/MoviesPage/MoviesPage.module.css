@@ -1,12 +1,24 @@
+.wrapperMoviePage {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/src/pages/img/theater-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:beige;
+    overflow: hidden;
+    height: 100vh;
+}
 .searchBarContainer {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 24px;
     gap: 8px;
 }
 .searchBarInput {
     min-width: 200px;
+    font-size: 18px;
+    background-color:beige;
     padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -20,8 +32,8 @@
     outline: none;
 }
 .searchBarBtn {
-    font-size: 16px;
-    padding: 5px 10px;
+    font-size: 18px;
+    padding: 7px 12px;
     color: #fff;
     background-color: #ff914c;
     border: none;
