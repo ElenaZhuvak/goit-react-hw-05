@@ -19,7 +19,7 @@ const MovieReviews = () => {
   if(!reviews.length) return `This movie has no reviews yet`
 
   return (
-    <div>
+    <div id='review-section'>
       {reviews.map(review => (
         <div className={css.reviewContainer} key={review.id}>
           <h3 className={css.reviewTitle}>Author: {review.author}</h3>

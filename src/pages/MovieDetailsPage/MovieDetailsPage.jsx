@@ -21,7 +21,25 @@ const MovieDetailsPage = () => {
     }
     getData()
   }, [movieId])
+
+  const handleCastScroll = () => {
+    setTimeout(() => {
+      const castSection = document.getElementById('cast-section');
+      if (castSection) {
+        castSection.scrollIntoView({behavior: 'smooth'})
+      }
+    }, 300);
+  }
   
+  const handleReviewScroll = () => {
+    setTimeout(() => {
+      const reviewSection = document.getElementById('review-section');
+      if (reviewSection) {
+        reviewSection.scrollIntoView({behavior: 'smooth'})
+      }
+    }, 300);
+  }
+
   if (!movieDetails) {
     return null
   }
@@ -55,8 +73,8 @@ const MovieDetailsPage = () => {
       <div>
               <p className={css.movieAddInfoTitle}>Additional information</p>
               <nav className={css.navAddInfo}>
-                    <NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink>
-                    <NavLink className={buildLinkClass} to='cast'>Cast</NavLink>
+                    <NavLink className={buildLinkClass} to='reviews' onClick={handleReviewScroll}>Reviews</NavLink>
+                    <NavLink className={buildLinkClass} to='cast' onClick={handleCastScroll}>Cast</NavLink>
               </nav>
       </div>
         <hr />

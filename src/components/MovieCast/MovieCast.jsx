@@ -19,7 +19,7 @@ const MovieCast = () => {
   }, [movieId]);
 
   return (
-    <div className={css.castContainer}>
+    <div id='cast-section'>
       <ul className={css.castList}>
         {cast.map(actor => (
           <li key={actor.id}>
